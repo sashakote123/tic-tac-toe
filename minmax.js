@@ -1,15 +1,15 @@
-//'use strict'
+
 
 const EMPTY = '';
 const HUMAN = 'O';
 const AI = 'X';
 
-// Проверяет, есть ли победитель на доске
+
 function checkWinner(board) {
     const winPatterns = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // горизонтали
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // вертикали
-        [0, 4, 8], [2, 4, 6]             // диагонали
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
     ];
 
     for (let pattern of winPatterns) {
@@ -22,22 +22,22 @@ function checkWinner(board) {
     return board.includes(EMPTY) ? null : 'tie';
 }
 
-// Функция для получения всех пустых клеток на доске
+
 function getAvailableMoves(board) {
     return board.reduce((acc, val, idx) => val === EMPTY ? acc.concat(idx) : acc, []);
 }
 
-// Минимакс функция
+
 function minimax(board, depth, isMaximizing) {
     const winner = checkWinner(board);
     if (winner !== null) {
         if (winner === AI) return 10 - depth;
         if (winner === HUMAN) return depth - 10;
-        return 0; // ничья
+        return 0;
     }
 
     const availableMoves = getAvailableMoves(board);
-    
+
     if (isMaximizing) {
         let maxEval = -Infinity;
         for (let move of availableMoves) {
@@ -59,7 +59,6 @@ function minimax(board, depth, isMaximizing) {
     }
 }
 
-// Находит лучший ход для AI
 export default function findBestMove(board) {
     let bestMove = -1;
     let bestValue = -Infinity;
@@ -69,7 +68,7 @@ export default function findBestMove(board) {
         board[move] = AI;
         const moveValue = minimax(board, 0, false);
         board[move] = EMPTY;
-        
+
         if (moveValue > bestValue) {
             bestValue = moveValue;
             bestMove = move;
@@ -79,8 +78,5 @@ export default function findBestMove(board) {
     return bestMove;
 }
 
-
-
-//export {findBestMove as default};
 
 

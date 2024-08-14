@@ -26,10 +26,8 @@ let numberTurn = 0;
 let gameStarted = false;
 let settingsForm = document.forms.gameSettings;
 let startSettingsForm = document.forms.startGameSettings;
-console.log(settingsForm);
-console.log(startSettingsForm);
 
-console.log(Math.floor(5 / 3));
+
 
 let gameProcess = (event) => {
     gameStarted = true
@@ -221,7 +219,6 @@ settingsForm.cancel.addEventListener('click', (event) => {
     event.preventDefault();
     contextMenu.classList.add('none');
 });
-console.log(settingsForm.gameType[2].checked);
 settingsForm.gameType.forEach(radio => radio.addEventListener('change', (event) => {
     if (settingsForm.gameType[1].checked || settingsForm.gameType[2].checked) {
         settingsForm.side.classList.remove('none');
@@ -486,64 +483,6 @@ function parseGameBoartTo(board) {
                 gameBoard.push('');
         }
 
-
-
-    // if (board.firstElementChild.children[0].children[1].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[0].children[1].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[0].children[1].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
-    // if (board.firstElementChild.children[0].children[2].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[0].children[2].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[0].children[2].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
-    // if (board.firstElementChild.children[1].children[0].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[1].children[0].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[1].children[0].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
-    // if (board.firstElementChild.children[1].children[1].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[1].children[1].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[1].children[1].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
-    // if (board.firstElementChild.children[1].children[2].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[1].children[2].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[1].children[2].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
-    // if (board.firstElementChild.children[2].children[0].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[2].children[0].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[2].children[0].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
-    // if (board.firstElementChild.children[2].children[1].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[2].children[1].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[2].children[1].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
-    // if (board.firstElementChild.children[2].children[2].firstElementChild.classList.contains('x-img'))
-    //     gameBoard.push('X');
-    // else if (board.firstElementChild.children[2].children[2].firstElementChild.classList.contains('o-img'))
-    //     gameBoard.push('O');
-    // else if (board.firstElementChild.children[2].children[2].firstElementChild.classList.contains('zero'))
-    //     gameBoard.push('');
-
     return gameBoard
 }
 
@@ -555,29 +494,9 @@ function parseGameBoartFrom(index, player) {
         innerHTML = x.innerHTML
 
     board.firstElementChild.children[Math.floor(index / 3)].children[index % 3].innerHTML = innerHTML;
-
-    // if (index == 0)
-    //     board.firstElementChild.children[0].children[0].innerHTML = innerHTML;
-    // else if (index == 1)
-    //     board.firstElementChild.children[0].children[1].innerHTML = innerHTML;
-    // else if (index == 2)
-    //     board.firstElementChild.children[0].children[2].innerHTML = innerHTML;
-    // else if (index == 3)
-    //     board.firstElementChild.children[1].children[0].innerHTML = innerHTML;
-    // else if (index == 4)
-    //     board.firstElementChild.children[1].children[1].innerHTML = innerHTML;
-    // else if (index == 5)
-    //     board.firstElementChild.children[1].children[2].innerHTML = innerHTML;
-    // else if (index == 6)
-    //     board.firstElementChild.children[2].children[0].innerHTML = innerHTML;
-    // else if (index == 7)
-    //     board.firstElementChild.children[2].children[1].innerHTML = innerHTML;
-    // else if (index == 8)
-    //     board.firstElementChild.children[2].children[2].innerHTML = innerHTML;
 }
 
 
-// Пример использования
 
 
 
@@ -590,12 +509,8 @@ let gameBoard = [
 let gameBoard2 = parseGameBoartTo(board);
 
 
-
-// Ход AI
 const bestMove = findBestMove(gameBoard);
 gameBoard[bestMove] = 'O';
-console.log("Best move for AI is at position:", bestMove);
-console.log(gameBoard);
 
 
 
