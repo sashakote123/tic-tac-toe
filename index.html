@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крестики-Нолики</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="game">
+            <div class="turn">
+                Ход <t class="turn-text-x">крестиков</t>
+            </div>
+
+            <div class="turn none">
+                Ход <t class="turn-text-o">ноликов</t>
+            </div>
+
+            <div class="end-game none">
+                Победили <t class="turn-text-x">крестики</t>
+            </div>
+
+            <div class="end-game none">
+                Победили <t class="turn-text-o">нолики</t>
+            </div>
+
+            <div class="end-game none">
+                Ничья
+            </div>
+
+            <div class="game-container">
+                <table class="game-board">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                            <td>
+                                <div class="zero"></div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+                <div class="end-game-line hidden"></div>
+            </div>
+
+            <div class="game-buttons none">
+                <button class="next-game-btn">Следующий кон</button>
+                <button class="cancel-game-btn">Закончить</button>
+            </div>
+
+        </div>
+
+
+
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th data-type="number">Кон</th>
+                    <th data-type="string">Победитель</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="start-game-context-menu none">
+        <div class="screen-darkness"></div>
+        <div class="context-menu less">
+            <div class="context-menu-title">Начать новую игру</div>
+
+
+            <form class="context-menu-settings" name="startGameSettings">
+                <div class="radio-btns">
+                    <div>
+                        <input type="radio" name="gameType" checked />
+                        <label>С другом</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gameType" />
+                        <label>С ботом</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gameType" />
+                        <label>Со сложным ботом</label>
+                    </div>
+                </div>
+                <select name="side" class="settings-side none">
+                    <option value="1">Крестики</option>
+                    <option value="1">Нолики</option>
+                </select>
+                <div class="buttons">
+                    <button name="restart" class="restart-btn">Начать</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="new-game-context-menu">
+        <div class="screen-darkness"></div>
+        <div class="context-menu">
+            <div class="context-menu-title">Начать новую игру?</div>
+            <div class="context-menu-warning">В таком случае, таблица очков сбросится</div>
+
+            <form class="context-menu-settings" name="gameSettings">
+                <div class="radio-btns">
+                    <div>
+                        <input type="radio" name="gameType" checked />
+                        <label>С другом</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gameType" />
+                        <label>С ботом</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gameType" />
+                        <label>Со сложным ботом</label>
+                    </div>
+                </div>
+                <select name="side" class="settings-side none">
+                    <option value="1">Крестики</option>
+                    <option value="1">Нолики</option>
+                </select>
+                <div class="buttons">
+                    <button name="restart" class="restart-btn">Заново</button>
+                    <button name="cancel" class="restart-btn">Отмена</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="o none">
+        <svg class="o-img" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="35" fill="#EEEEEE" stroke="#B8CACD" stroke-width="12" />
+        </svg>
+    </div>
+
+    <div class="x none">
+
+
+        <svg class="x-img" width="49" height="50" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="3.18198" y1="3.81802" x2="45.6084" y2="46.2444" stroke="#B8CACD" stroke-width="9" />
+        </svg>
+
+        <svg class="x-img two" width="50" height="50" viewBox="0 0 50 50" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <line x2="3.81802" y2="46.2444" x1="46.2444" y1="3.81801" stroke="#B8CACD" stroke-width="9" />
+        </svg>
+
+
+
+    </div>
+
+</body>
+
+<script type="module" src="./script.js"></script>
+<!-- <script type="module" src="./minmax.js"></script> -->
+
+</html>
